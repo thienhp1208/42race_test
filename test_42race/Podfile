@@ -8,6 +8,8 @@ target 'test_42race' do
   # Pods for test_42race
   pod 'R.swift', '~> 6.0.0'
   pod 'Reusable'
+  pod 'SwiftKeychainWrapper'
+  pod 'Moya', '~> 15.0'
   
   target 'test_42raceTests' do
     inherit! :search_paths

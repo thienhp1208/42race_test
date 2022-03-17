@@ -2,7 +2,7 @@
 //  test_42raceTests.swift
 //  test_42raceTests
 //
-//  Created by For Test Only on 16/03/2022.
+//  Created by Thien Huynh on 16/03/2022.
 //
 
 import XCTest
