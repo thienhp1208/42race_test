@@ -188,14 +188,20 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
+      typealias InitialController = SearchViewController
 
       let bundle = R.hostingBundle
       let name = "Main"
+      let searchViewController = StoryboardViewControllerResource<SearchViewController>(identifier: "SearchViewController")
+
+      func searchViewController(_: Void = ()) -> SearchViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchViewController)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().searchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchViewController' could not be loaded from storyboard 'Main' as 'SearchViewController'.") }
       }
 
       fileprivate init() {}
