@@ -13,7 +13,7 @@ struct SearchRequestKey: Encodable {
     let longitude: Double?
     let categories: String?
     let location: String?
-    let sortBy: SearchSortBy?
+    let sortBy: SortMethod?
     
     enum CodingKeys: String, CodingKey {
         case term

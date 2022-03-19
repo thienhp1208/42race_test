@@ -9,28 +9,28 @@ import Foundation
 
 // MARK: - Search Result
 struct SearchResult: Decodable {
-    let businesses: [Business]
-    let total: Int
+    let businesses: [Business]?
+    let total: Int?
 }
 
 // MARK: - Business
 struct Business: Decodable {
-    let id: String
-    let alias: String
-    let name: String
-    let imageURL: String
-    let isClosed: Bool
-    let url: String
-    let reviewCount: Int
-    let categories: [Category]
-    let rating: Double
-    let coordinates: Coordinates
-    let transactions: [String]
+    let id: String?
+    let alias: String?
+    let name: String?
+    let imageURL: String?
+    let isClosed: Bool?
+    let url: String?
+    let reviewCount: Int?
+    let categories: [Category]?
+    let rating: Double?
+    let coordinates: Coordinates?
+    let transactions: [String]?
     let price: String?
-    let location: Location
-    let phone: String
-    let displayPhone: String
-    let distance: Double
+    let location: Location?
+    let phone: String?
+    let displayPhone: String?
+    let distance: Double?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -54,20 +54,20 @@ struct Business: Decodable {
 
 // MARK: - Category
 struct Category: Decodable {
-    let alias: String
-    let title: String
+    let alias: String?
+    let title: String?
 }
 
 // MARK: - Location
 struct Location: Decodable {
-    let address1: String
+    let address1: String?
     let address2: String?
     let address3: String?
-    let city: String
-    let zipCode: String
-    let country: String
-    let state: String
-    let displayAddress: [String]
+    let city: String?
+    let zipCode: String?
+    let country: String?
+    let state: String?
+    let displayAddress: [String]?
     
     enum CodingKeys: String, CodingKey {
         case address1
@@ -83,6 +83,6 @@ struct Location: Decodable {
 
 // MARK: - Coordinates
 struct Coordinates: Decodable {
-    let latitude: Double
-    let longitude: Double
+    let latitude: Double?
+    let longitude: Double?
 }
