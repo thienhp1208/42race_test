@@ -18,4 +18,15 @@ class BusinessAPIManager: BaseAPIManager<BusinessTarget> {
             }
         }
     }
+    
+    func getBusiness(by id: String, completion: @escaping (Result<BusinessDetail, APIError>) -> Void) {
+        request(target: BusinessTarget.getBusinessById(id), type: BusinessDetail.self, dataField: .none) { result in
+            switch result {
+            case .success(let result):
+                completion(.success(result))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

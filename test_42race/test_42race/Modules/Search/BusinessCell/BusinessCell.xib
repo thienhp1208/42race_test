@@ -68,19 +68,32 @@
                             <constraint firstItem="o1T-us-ays" firstAttribute="leading" secondItem="ntP-9T-WXJ" secondAttribute="trailing" constant="4" id="thR-jT-wLp"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8k-Xq-Sav">
+                        <rect key="frame" x="0.0" y="0.0" width="421" height="100"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        <connections>
+                            <action selector="didTapSelectCell:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="l1r-NQ-kgJ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="jY7-yS-qBF" secondAttribute="bottom" id="Cvn-sC-RSe"/>
                     <constraint firstAttribute="trailing" secondItem="jY7-yS-qBF" secondAttribute="trailing" id="Fhx-Yp-Oy2"/>
                     <constraint firstItem="jY7-yS-qBF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HF9-rm-L3z"/>
                     <constraint firstItem="jY7-yS-qBF" firstAttribute="leading" secondItem="fYv-JS-j0I" secondAttribute="trailing" id="Nd9-K0-u7F"/>
+                    <constraint firstItem="B8k-Xq-Sav" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ucn-h8-W32"/>
+                    <constraint firstAttribute="bottom" secondItem="B8k-Xq-Sav" secondAttribute="bottom" id="bBB-wG-twK"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fYv-JS-j0I" secondAttribute="bottom" constant="8" id="bDC-mT-FhJ"/>
+                    <constraint firstItem="B8k-Xq-Sav" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gzB-hF-ISL"/>
                     <constraint firstItem="fYv-JS-j0I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lKx-Bw-ACj"/>
+                    <constraint firstAttribute="trailing" secondItem="B8k-Xq-Sav" secondAttribute="trailing" id="oAY-xB-PNZ"/>
                     <constraint firstItem="fYv-JS-j0I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ual-YL-6TE"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnSelectCell" destination="B8k-Xq-Sav" id="wdV-vu-ger"/>
                 <outlet property="businessAvatarImgView" destination="fYv-JS-j0I" id="XOK-Hd-0HT"/>
                 <outlet property="lblBusinessDistance" destination="lUh-cb-4Qk" id="CMX-r9-lwA"/>
                 <outlet property="lblBusinessName" destination="yb2-6x-9h9" id="UhB-C1-LIJ"/>

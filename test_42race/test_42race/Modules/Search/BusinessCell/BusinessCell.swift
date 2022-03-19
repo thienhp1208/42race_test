@@ -18,11 +18,19 @@ class BusinessCell: UITableViewCell {
     @IBOutlet weak var lblBusinessRating: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var lblBusinessDistance: UILabel!
+    @IBOutlet weak var btnSelectCell: UIButton!
     
+    // MARK: - Properties
+    var onSelect: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
+    }
+    
+    // MARK: - Action
+    @IBAction func didTapSelectCell(_ sender: Any) {
+        self.onSelect?()
     }
     
 }
@@ -42,6 +50,8 @@ extension BusinessCell {
         ratingView.settings.starSize = ratingView.bounds.height
         ratingView.settings.starMargin = 3
         ratingView.widthAnchor.constraint(equalToConstant: ratingView.intrinsicContentSize.width).isActive = true
+        
+        btnSelectCell.setTitle("", for: .normal)
     }
     
     func updateData(data: Business) {

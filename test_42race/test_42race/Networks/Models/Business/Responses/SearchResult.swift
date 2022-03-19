@@ -24,14 +24,14 @@ struct Business: Decodable {
     let reviewCount: Int
     let categories: [Category]
     let rating: Double
-    let coordinates: Center
+    let coordinates: Coordinates
     let transactions: [String]
     let price: String?
     let location: Location
     let phone: String
     let displayPhone: String
     let distance: Double
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case alias
@@ -68,7 +68,7 @@ struct Location: Decodable {
     let country: String
     let state: String
     let displayAddress: [String]
-
+    
     enum CodingKeys: String, CodingKey {
         case address1
         case address2
@@ -81,8 +81,8 @@ struct Location: Decodable {
     }
 }
 
-// MARK: - Center
-struct Center: Decodable {
+// MARK: - Coordinates
+struct Coordinates: Decodable {
     let latitude: Double
     let longitude: Double
 }

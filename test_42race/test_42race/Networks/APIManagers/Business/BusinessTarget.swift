@@ -9,6 +9,7 @@ import Moya
 
 enum BusinessTarget {
     case searchBusinesses(ParametersDictionary)
+    case getBusinessById(String)
 }
 
 extension BusinessTarget: TargetType, AccessTokenAuthorizable {
@@ -20,12 +21,14 @@ extension BusinessTarget: TargetType, AccessTokenAuthorizable {
         switch self {
         case .searchBusinesses:
             return "businesses/search"
+        case .getBusinessById(let id):
+            return "businesses/\(id)"
         }
     }
     
     var method: Method {
         switch self {
-        case .searchBusinesses:
+        case .searchBusinesses, .getBusinessById:
             return .get
         }
     }
@@ -34,6 +37,8 @@ extension BusinessTarget: TargetType, AccessTokenAuthorizable {
         switch self {
         case .searchBusinesses(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .getBusinessById:
+            return .requestPlain
         }
     }
     

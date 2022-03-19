@@ -21,7 +21,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     @IBOutlet weak var resultTableView: UITableView!
     
     // MARK: - Properties
-    var onSelectBusiness: (() -> Void)?
+    var onSelectBusiness: ((BusinessDetail) -> Void)?
     
     // MARK: - Init
     class func instantiate(viewModel: SearchViewModel) -> SearchViewController {
@@ -39,6 +39,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 
     // MARK: - Action
     @IBAction func didTapSearchButton(_ sender: Any) {
+        view.endEditing(true)
         viewModel.search(with: searchTextField.text ?? "")
     }
     
@@ -49,6 +50,7 @@ extension SearchViewController {
     private func configUI() {
         self.navigationItem.title = "Search Result"
         resultTableView.register(UINib(resource: R.nib.businessCell), forCellReuseIdentifier: R.reuseIdentifier.businessCell.identifier)
+        searchTextField.delegate = self
     }
     
     private func binding() {
@@ -73,8 +75,27 @@ extension SearchViewController {
         viewModel.listBusinesses
             .bind(to: resultTableView.rx.items(cellIdentifier: R.reuseIdentifier.businessCell.identifier, cellType: BusinessCell.self)) { (row, business, cell) in
                 cell.updateData(data: business)
+                cell.onSelect = { [unowned self] in
+                    let businessAlias = self.viewModel.businesses[row].alias
+                    self.viewModel.getBusiness(with: businessAlias)
+                }
             }
             .disposed(by: disposeBag)
 
+        viewModel.selectedBusiness
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] detail in
+                self.onSelectBusiness?(detail)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        viewModel.search(with: textField.text ?? "")
+        view.endEditing(true)
+        return true
     }
 }

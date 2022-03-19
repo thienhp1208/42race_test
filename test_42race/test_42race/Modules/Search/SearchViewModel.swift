@@ -16,9 +16,11 @@ enum SearchSortBy: String, CaseIterable, Encodable {
 class SearchViewModel: BaseViewModel {
     private lazy var apiManager = BusinessAPIManager(session: self.session)
     
+    var businesses: [Business] = []
     var listBusinesses: PublishSubject<[Business]> = PublishSubject()
     var isLoading: PublishSubject<Bool> = PublishSubject()
     var showError: PublishSubject<APIError> = PublishSubject()
+    var selectedBusiness: PublishSubject<BusinessDetail> = PublishSubject()
 }
 
 // MARK: - Helper Method
@@ -47,10 +49,23 @@ extension SearchViewModel {
             self.isLoading.onNext(false)
             switch result {
             case .success(let searchResult):
+                self.businesses = searchResult.businesses
                 self.listBusinesses.onNext(searchResult.businesses)
             case .failure(let error):
                 self.showError.onNext(error)
-                print("For Test: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getBusiness(with id: String) {
+        self.isLoading.onNext(true)
+        apiManager.getBusiness(by: id) { [unowned self] result in
+            self.isLoading.onNext(false)
+            switch result {
+            case .success(let detail):
+                self.selectedBusiness.onNext(detail)
+            case .failure(let error):
+                self.showError.onNext(error)
             }
         }
     }
