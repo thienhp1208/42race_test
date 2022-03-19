@@ -48,6 +48,7 @@ extension BusinessDetailViewController {
         detailTableView.delegate = self
         detailTableView.dataSource = self
         detailTableView.register(cellType: BusinessMainInfoCell.self)
+        detailTableView.register(cellType: BusinessMoreInfoCell.self)
     }
     
     private func binding() {
@@ -58,13 +59,19 @@ extension BusinessDetailViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension BusinessDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessMainInfoCell.self)
-        cell.updateData(detail: viewModel.businessDetail)
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessMainInfoCell.self)
+            cell.updateData(detail: viewModel.businessDetail)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessMoreInfoCell.self)
+            cell.updateData(detail: viewModel.businessDetail)
+            return cell
+        }
     }
     
     

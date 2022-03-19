@@ -139,10 +139,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `ic_arrow_right`.
+    static let ic_arrow_right = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_arrow_right")
     /// Image `ic_close_white`.
     static let ic_close_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_close_white")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_arrow_right", bundle: ..., traitCollection: ...)`
+    static func ic_arrow_right(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_arrow_right, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_close_white", bundle: ..., traitCollection: ...)`
@@ -154,7 +163,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `BusinessCell`.
     static let businessCell = _R.nib._BusinessCell()
@@ -162,6 +171,8 @@ struct R: Rswift.Validatable {
     static let businessImageCollectionCell = _R.nib._BusinessImageCollectionCell()
     /// Nib `BusinessMainInfoCell`.
     static let businessMainInfoCell = _R.nib._BusinessMainInfoCell()
+    /// Nib `BusinessMoreInfoCell`.
+    static let businessMoreInfoCell = _R.nib._BusinessMoreInfoCell()
     /// Nib `FilterCollectionViewCell`.
     static let filterCollectionViewCell = _R.nib._FilterCollectionViewCell()
 
@@ -190,6 +201,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BusinessMoreInfoCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.businessMoreInfoCell) instead")
+    static func businessMoreInfoCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.businessMoreInfoCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "FilterCollectionViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.filterCollectionViewCell) instead")
     static func filterCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -207,6 +226,10 @@ struct R: Rswift.Validatable {
 
     static func businessMainInfoCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessMainInfoCell? {
       return R.nib.businessMainInfoCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessMainInfoCell
+    }
+
+    static func businessMoreInfoCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessMoreInfoCell? {
+      return R.nib.businessMoreInfoCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessMoreInfoCell
     }
 
     static func filterCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FilterCollectionCell? {
@@ -244,12 +267,19 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _BusinessMoreInfoCell.validate()
+    }
+
     struct _BusinessCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = BusinessCell
 
@@ -284,6 +314,23 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessMainInfoCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessMainInfoCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _BusinessMoreInfoCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "BusinessMoreInfoCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessMoreInfoCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessMoreInfoCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ic_arrow_right", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_arrow_right' is used in nib 'BusinessMoreInfoCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

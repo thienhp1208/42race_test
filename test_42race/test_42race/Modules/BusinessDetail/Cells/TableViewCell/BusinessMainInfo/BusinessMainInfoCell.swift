@@ -65,9 +65,6 @@ extension BusinessMainInfoCell {
                 self.ratingView.rating = detail.rating ?? 0.0
                 
                 var listImages: [String] = []
-                if let imageURL = detail.imageURL {
-                    listImages.append(imageURL)
-                }
                 if let photos = detail.photos {
                     listImages.append(contentsOf: photos)
                 }

@@ -45,6 +45,8 @@
 		E89CF5CA27E6348F00C5E2E4 /* BusinessMainInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CF5C927E6348F00C5E2E4 /* BusinessMainInfoCell.xib */; };
 		E89CF5CF27E639D200C5E2E4 /* BusinessImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CF5CD27E639D200C5E2E4 /* BusinessImageCollectionCell.swift */; };
 		E89CF5D027E639D200C5E2E4 /* BusinessImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CF5CE27E639D200C5E2E4 /* BusinessImageCollectionCell.xib */; };
+		E89CF5D327E63FCE00C5E2E4 /* BusinessMoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CF5D127E63FCE00C5E2E4 /* BusinessMoreInfoCell.swift */; };
+		E89CF5D427E63FCE00C5E2E4 /* BusinessMoreInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CF5D227E63FCE00C5E2E4 /* BusinessMoreInfoCell.xib */; };
 		E8B8414B27E1F1C000FD3F6A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8414A27E1F1C000FD3F6A /* R.generated.swift */; };
 		E8B8415727E1F31100FD3F6A /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415027E1F31000FD3F6A /* RouterType.swift */; };
 		E8B8415827E1F31100FD3F6A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */; };
@@ -124,6 +126,8 @@
 		E89CF5C927E6348F00C5E2E4 /* BusinessMainInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessMainInfoCell.xib; sourceTree = "<group>"; };
 		E89CF5CD27E639D200C5E2E4 /* BusinessImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessImageCollectionCell.swift; sourceTree = "<group>"; };
 		E89CF5CE27E639D200C5E2E4 /* BusinessImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessImageCollectionCell.xib; sourceTree = "<group>"; };
+		E89CF5D127E63FCE00C5E2E4 /* BusinessMoreInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMoreInfoCell.swift; sourceTree = "<group>"; };
+		E89CF5D227E63FCE00C5E2E4 /* BusinessMoreInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessMoreInfoCell.xib; sourceTree = "<group>"; };
 		E8B8414A27E1F1C000FD3F6A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E8B8415027E1F31000FD3F6A /* RouterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -430,6 +434,8 @@
 		E89CF5C727E6328000C5E2E4 /* BusineessMoreInfo */ = {
 			isa = PBXGroup;
 			children = (
+				E89CF5D127E63FCE00C5E2E4 /* BusinessMoreInfoCell.swift */,
+				E89CF5D227E63FCE00C5E2E4 /* BusinessMoreInfoCell.xib */,
 			);
 			path = BusineessMoreInfo;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				E89CF5B827E60D7400C5E2E4 /* FilterCollectionViewCell.xib in Resources */,
 				E89CF5AE27E5D68700C5E2E4 /* BusinessCell.xib in Resources */,
 				E89CF5D027E639D200C5E2E4 /* BusinessImageCollectionCell.xib in Resources */,
+				E89CF5D427E63FCE00C5E2E4 /* BusinessMoreInfoCell.xib in Resources */,
 				E81305ED27E1E08D00E514FA /* Assets.xcassets in Resources */,
 				E89CF5CA27E6348F00C5E2E4 /* BusinessMainInfoCell.xib in Resources */,
 				E81305EB27E1E08B00E514FA /* Main.storyboard in Resources */,
@@ -794,6 +801,7 @@
 				E888BC2F27E234C40016A5BC /* URLRequest+Extension.swift in Sources */,
 				E89CF5B227E5FF9A00C5E2E4 /* BusinessDetail.swift in Sources */,
 				E8B8415827E1F31100FD3F6A /* NavigationRouter.swift in Sources */,
+				E89CF5D327E63FCE00C5E2E4 /* BusinessMoreInfoCell.swift in Sources */,
 				E8B8415D27E1F31100FD3F6A /* AppRouter.swift in Sources */,
 				E8B8416727E1F34700FD3F6A /* DeepLinks.swift in Sources */,
 				E888BC4527E48FE80016A5BC /* SearchRequestKey.swift in Sources */,
