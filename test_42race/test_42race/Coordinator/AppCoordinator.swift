@@ -23,6 +23,7 @@ class AppCoordinator: RootCoordinator {
         let viewModel = SearchViewModel(session: session)
         let coordinator = SearchCoordinator.init(with: NavigationRouter(), viewModel: viewModel)
 
+        addChild(coordinator)
         router.setRootModule(coordinator.toPresentable())
 	}
 }
