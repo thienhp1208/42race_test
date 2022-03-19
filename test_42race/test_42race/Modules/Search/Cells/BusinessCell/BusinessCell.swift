@@ -55,17 +55,19 @@ extension BusinessCell {
     }
     
     func updateData(data: Business) {
-        businessAvatarImgView.kf
-            .setImage(with: URL(string: data.imageURL),
-                      placeholder: nil,
-                      options: [
-                        .transition(.fade(1)),
-                        .cacheOriginalImage
-                      ])
-        lblBusinessName.text = "\(data.name)"
-        ratingView.rating = data.rating
-        lblBusinessRating.text = "(\(data.rating)/5.0)"
-        let distance = data.distance / 1000
+        if let imgURL = data.imageURL {
+            businessAvatarImgView.kf
+                .setImage(with: URL(string: imgURL),
+                          placeholder: nil,
+                          options: [
+                            .transition(.fade(1)),
+                            .cacheOriginalImage
+                          ])
+        }
+        lblBusinessName.text = "\(data.name ?? "")"
+        ratingView.rating = data.rating ?? 0.0
+        lblBusinessRating.text = "(\(data.rating ?? 0.0)/5.0)"
+        let distance = (data.distance ?? 0) / 1000
         lblBusinessDistance.text = "\(round(distance * 100) / 100)km away"
     }
 }

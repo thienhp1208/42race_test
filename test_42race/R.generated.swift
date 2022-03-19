@@ -139,10 +139,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `BusinessCell`.
     static let businessCell = _R.nib._BusinessCell()
+    /// Nib `FilterCollectionViewCell`.
+    static let filterCollectionViewCell = _R.nib._FilterCollectionViewCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "BusinessCell", in: bundle)`
@@ -152,17 +154,31 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "FilterCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.filterCollectionViewCell) instead")
+    static func filterCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.filterCollectionViewCell)
+    }
+    #endif
+
     static func businessCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessCell? {
       return R.nib.businessCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessCell
+    }
+
+    static func filterCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FilterCollectionCell? {
+      return R.nib.filterCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FilterCollectionCell
     }
 
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `businessCell`.
     static let businessCell: Rswift.ReuseIdentifier<BusinessCell> = Rswift.ReuseIdentifier(identifier: "businessCell")
+    /// Reuse identifier `filterCollectionCell`.
+    static let filterCollectionCell: Rswift.ReuseIdentifier<FilterCollectionCell> = Rswift.ReuseIdentifier(identifier: "filterCollectionCell")
 
     fileprivate init() {}
   }
@@ -198,6 +214,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _FilterCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = FilterCollectionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "filterCollectionCell"
+      let name = "FilterCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FilterCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FilterCollectionCell
       }
 
       fileprivate init() {}

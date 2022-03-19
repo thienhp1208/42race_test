@@ -8,49 +8,117 @@
 import Foundation
 import RxSwift
 
-enum SearchSortBy: String, CaseIterable, Encodable {
+enum SortMethod: String, CaseIterable, Encodable {
     case distance = "distance"
     case rating = "rating"
+    
+    var title: String {
+        switch self {
+        case .distance:
+            return "Distance"
+        case .rating:
+            return "Rating"
+        }
+    }
+}
+
+enum SearchMethod: String, CaseIterable, Encodable {
+    case name = "term"
+    case location = "address"
+    case categories = "categories"
+    
+    var title: String {
+        switch self {
+        case .name:
+            return "Name"
+        case .location:
+            return "Address/City/Postal Code"
+        case .categories:
+            return "Categories"
+        }
+    }
+}
+
+struct FilterItem {
+    var title: String
+    var isSelected: Bool = false
 }
 
 class SearchViewModel: BaseViewModel {
+    // MARK: - Properties
     private lazy var apiManager = BusinessAPIManager(session: self.session)
     
     var businesses: [Business] = []
+    private var selectedSortMethod: SortMethod?
+    private var selectedSearchMethod: SearchMethod = .name
+    
     var listBusinesses: PublishSubject<[Business]> = PublishSubject()
     var isLoading: PublishSubject<Bool> = PublishSubject()
     var showError: PublishSubject<APIError> = PublishSubject()
+    var sortByList: PublishSubject<[FilterItem]> = PublishSubject()
+    var searchByList: PublishSubject<[FilterItem]> = PublishSubject()
     var selectedBusiness: PublishSubject<BusinessDetail> = PublishSubject()
 }
 
 // MARK: - Helper Method
 extension SearchViewModel {
-    func search(with text: String = "", isSearchByAddress: Bool = false, isSearchByCategory: Bool = false, sortBy: SearchSortBy? = nil) {
+    func initViewModel() {
+        let sortByMethods = SortMethod.allCases.map({ FilterItem(title: $0.title, isSelected: false) })
+        sortByList.onNext(sortByMethods)
+        
+        let searchMethods = SearchMethod.allCases.map({ FilterItem(title: $0.title, isSelected: $0 == self.selectedSearchMethod) })
+        searchByList.onNext(searchMethods)
+    }
+    
+    func updateSortMethod(at index: Int) {
+        self.selectedSortMethod = SortMethod.allCases[index]
+        let sortByMethods = SortMethod.allCases.map({ FilterItem(title: $0.title, isSelected: $0 == self.selectedSortMethod) })
+        sortByList.onNext(sortByMethods)
+    }
+    
+    func updateSearchMethod(at index: Int) {
+        self.selectedSearchMethod = SearchMethod.allCases[index]
+        let searchMethods = SearchMethod.allCases.map({ FilterItem(title: $0.title, isSelected: $0 == self.selectedSearchMethod) })
+        searchByList.onNext(searchMethods)
+    }
+    
+    func search(with text: String) {
+        if text.isEmpty {
+            self.showError.onNext(.emptySearchField)
+            return
+        }
+        
         var term: String?
         var address: String?
         var category: String?
         var lat: Double?
         var lon: Double?
         
-        if isSearchByAddress {
-            address = text
-        } else if isSearchByCategory {
-            category = text
-            lat = 37.786882
-            lon = -122.399972
-        } else {
+        switch selectedSearchMethod {
+        case .name:
             term = text
             lat = 37.786882
             lon = -122.399972
+        case .location:
+            address = text
+        case .categories:
+            category = text
+            lat = 37.786882
+            lon = -122.399972
         }
+        
         isLoading.onNext(true)
-        let requestKey = SearchRequestKey(term: term, latitude: lat, longitude: lon, categories: category, location: address, sortBy: sortBy)
+        let requestKey = SearchRequestKey(term: term, latitude: lat, longitude: lon, categories: category, location: address, sortBy: selectedSortMethod)
         apiManager.search(requestKey: requestKey) { [unowned self] result in
             self.isLoading.onNext(false)
             switch result {
             case .success(let searchResult):
-                self.businesses = searchResult.businesses
-                self.listBusinesses.onNext(searchResult.businesses)
+                guard let businesses = searchResult.businesses else {
+                    self.showError.onNext(.nilValue)
+                    return
+                }
+                self.businesses = businesses
+                self.listBusinesses.onNext(businesses)
             case .failure(let error):
                 self.showError.onNext(error)
             }
