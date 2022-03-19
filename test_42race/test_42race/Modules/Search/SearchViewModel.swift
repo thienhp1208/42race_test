@@ -47,10 +47,9 @@ extension SearchViewModel {
             self.isLoading.onNext(false)
             switch result {
             case .success(let searchResult):
-                let list = searchResult.businesses
-                
-                print("\(list.count)")
+                self.listBusinesses.onNext(searchResult.businesses)
             case .failure(let error):
+                self.showError.onNext(error)
                 print("For Test: \(error.localizedDescription)")
             }
         }

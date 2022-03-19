@@ -139,6 +139,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `BusinessCell`.
+    static let businessCell = _R.nib._BusinessCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BusinessCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.businessCell) instead")
+    static func businessCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.businessCell)
+    }
+    #endif
+
+    static func businessCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessCell? {
+      return R.nib.businessCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessCell
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `businessCell`.
+    static let businessCell: Rswift.ReuseIdentifier<BusinessCell> = Rswift.ReuseIdentifier(identifier: "businessCell")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -158,6 +186,26 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _BusinessCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = BusinessCell
+
+      let bundle = R.hostingBundle
+      let identifier = "businessCell"
+      let name = "BusinessCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessCell
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {

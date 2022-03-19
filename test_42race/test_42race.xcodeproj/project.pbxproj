@@ -34,6 +34,8 @@
 		E888BC4A27E495170016A5BC /* BusinessAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4927E495170016A5BC /* BusinessAPIManager.swift */; };
 		E888BC4C27E495990016A5BC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4B27E495990016A5BC /* SearchResult.swift */; };
 		E888BC5027E5C3130016A5BC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4F27E5C3120016A5BC /* LoadingView.swift */; };
+		E89CF5AD27E5D68700C5E2E4 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CF5AB27E5D68700C5E2E4 /* BusinessCell.swift */; };
+		E89CF5AE27E5D68700C5E2E4 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CF5AC27E5D68700C5E2E4 /* BusinessCell.xib */; };
 		E8B8414B27E1F1C000FD3F6A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8414A27E1F1C000FD3F6A /* R.generated.swift */; };
 		E8B8415727E1F31100FD3F6A /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415027E1F31000FD3F6A /* RouterType.swift */; };
 		E8B8415827E1F31100FD3F6A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */; };
@@ -102,6 +104,8 @@
 		E888BC4927E495170016A5BC /* BusinessAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAPIManager.swift; sourceTree = "<group>"; };
 		E888BC4B27E495990016A5BC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E888BC4F27E5C3120016A5BC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E89CF5AB27E5D68700C5E2E4 /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		E89CF5AC27E5D68700C5E2E4 /* BusinessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		E8B8414A27E1F1C000FD3F6A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E8B8415027E1F31000FD3F6A /* RouterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		E888BC3E27E32F120016A5BC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E89CF5A827E5D65800C5E2E4 /* BusinessCell */,
 				E81305E727E1E08B00E514FA /* SearchViewController.swift */,
 				E888BC3527E328F80016A5BC /* SearchViewModel.swift */,
 				E888BC3C27E32A350016A5BC /* SearchCoordinator.swift */,
@@ -336,6 +341,15 @@
 				E888BC4F27E5C3120016A5BC /* LoadingView.swift */,
 			);
 			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		E89CF5A827E5D65800C5E2E4 /* BusinessCell */ = {
+			isa = PBXGroup;
+			children = (
+				E89CF5AB27E5D68700C5E2E4 /* BusinessCell.swift */,
+				E89CF5AC27E5D68700C5E2E4 /* BusinessCell.xib */,
+			);
+			path = BusinessCell;
 			sourceTree = "<group>";
 		};
 		E8B8414C27E1F2B200FD3F6A /* Networks */ = {
@@ -500,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E81305F027E1E08D00E514FA /* LaunchScreen.storyboard in Resources */,
+				E89CF5AE27E5D68700C5E2E4 /* BusinessCell.xib in Resources */,
 				E81305ED27E1E08D00E514FA /* Assets.xcassets in Resources */,
 				E81305EB27E1E08B00E514FA /* Main.storyboard in Resources */,
 			);
@@ -654,6 +669,7 @@
 				E888BC2A27E228C30016A5BC /* JsonArrayEncoding.swift in Sources */,
 				E888BC3B27E329A10016A5BC /* BaseViewController.swift in Sources */,
 				E888BC3D27E32A350016A5BC /* SearchCoordinator.swift in Sources */,
+				E89CF5AD27E5D68700C5E2E4 /* BusinessCell.swift in Sources */,
 				E888BC2B27E228C30016A5BC /* APIRequestRetrier.swift in Sources */,
 				E888BC3127E237FA0016A5BC /* Codable+Extension.swift in Sources */,
 				E8B8416627E1F34700FD3F6A /* DataManager.swift in Sources */,

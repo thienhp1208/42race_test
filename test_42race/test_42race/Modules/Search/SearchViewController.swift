@@ -48,18 +48,33 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 extension SearchViewController {
     private func configUI() {
         self.navigationItem.title = "Search Result"
+        resultTableView.register(UINib(resource: R.nib.businessCell), forCellReuseIdentifier: R.reuseIdentifier.businessCell.identifier)
     }
     
     private func binding() {
         viewModel.isLoading
             .bind { [unowned self] isLoad in
                 if isLoad {
-                    self.loadingView.frame = self.view.frame
-                    self.view.addSubview(self.loadingView)
+                    self.loadingView.startAnimate(superView: self.view)
                 } else {
-                    self.loadingView.removeFromSuperview()
+                    self.loadingView.stopAnimate()
                 }
             }
             .disposed(by: disposeBag)
+        
+        viewModel.showError
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] error in
+                print(error.localizedDescription)
+                self.showError(error: error)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.listBusinesses
+            .bind(to: resultTableView.rx.items(cellIdentifier: R.reuseIdentifier.businessCell.identifier, cellType: BusinessCell.self)) { (row, business, cell) in
+                cell.updateData(data: business)
+            }
+            .disposed(by: disposeBag)
+
     }
 }
