@@ -33,6 +33,7 @@
 		E888BC4527E48FE80016A5BC /* SearchRequestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4427E48FE80016A5BC /* SearchRequestKey.swift */; };
 		E888BC4A27E495170016A5BC /* BusinessAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4927E495170016A5BC /* BusinessAPIManager.swift */; };
 		E888BC4C27E495990016A5BC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4B27E495990016A5BC /* SearchResult.swift */; };
+		E888BC5027E5C3130016A5BC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC4F27E5C3120016A5BC /* LoadingView.swift */; };
 		E8B8414B27E1F1C000FD3F6A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8414A27E1F1C000FD3F6A /* R.generated.swift */; };
 		E8B8415727E1F31100FD3F6A /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415027E1F31000FD3F6A /* RouterType.swift */; };
 		E8B8415827E1F31100FD3F6A /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */; };
@@ -100,6 +101,7 @@
 		E888BC4427E48FE80016A5BC /* SearchRequestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestKey.swift; sourceTree = "<group>"; };
 		E888BC4927E495170016A5BC /* BusinessAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAPIManager.swift; sourceTree = "<group>"; };
 		E888BC4B27E495990016A5BC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		E888BC4F27E5C3120016A5BC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E8B8414A27E1F1C000FD3F6A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E8B8415027E1F31000FD3F6A /* RouterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		E8B8415127E1F31000FD3F6A /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -320,6 +322,22 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		E888BC4D27E5C2DD0016A5BC /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				E888BC4E27E5C2E70016A5BC /* LoadingView */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+		E888BC4E27E5C2E70016A5BC /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				E888BC4F27E5C3120016A5BC /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		E8B8414C27E1F2B200FD3F6A /* Networks */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +372,7 @@
 		E8B8414F27E1F2F700FD3F6A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E888BC4D27E5C2DD0016A5BC /* Customs */,
 				E888BC3E27E32F120016A5BC /* Search */,
 				E888BC3727E3290F0016A5BC /* Bases */,
 			);
@@ -655,6 +674,7 @@
 				E8B8416527E1F34700FD3F6A /* Session.swift in Sources */,
 				E888BC4327E32F800016A5BC /* BusinessTarget.swift in Sources */,
 				E8B8415927E1F31100FD3F6A /* Presentable.swift in Sources */,
+				E888BC5027E5C3130016A5BC /* LoadingView.swift in Sources */,
 				E8B8415A27E1F31100FD3F6A /* AppCoordinator.swift in Sources */,
 				E888BC4C27E495990016A5BC /* SearchResult.swift in Sources */,
 				E888BC2927E228C30016A5BC /* APIError.swift in Sources */,

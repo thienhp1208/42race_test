@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import RxSwift
 
 class BaseViewModel {
     
     // MARK: - Properties
     let session: Session
+    let disposeBag = DisposeBag()
     
     // MARK: - Initialization
     init(session: Session) {

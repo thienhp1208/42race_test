@@ -187,9 +187,7 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = SearchViewController
-
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Main"
       let searchViewController = StoryboardViewControllerResource<SearchViewController>(identifier: "SearchViewController")
