@@ -28,7 +28,7 @@ class BaseAPIManager<T: TargetType> {
 	/// Moya provider object
 	private lazy var provider: MoyaProvider<T> = {
 		let authPlugin = AccessTokenPlugin(tokenClosure: { _ in
-			"1c0BU4Pvxb-8KWi005aiuLMZjXc2eBo8lPi-oN1A0eCIs9VFo2XQ3UCEoQgjqCOiHgp8GnBK2dLVDaxKJ8f7eylOLFzT_TRhwS9aewOXBm0JAWrOGhooioJk_rQxYnYx"
+			"QKjvIOrIiAKXfEm0LtKvTEEkcgcx21mF_iiI23SY8ZZ2cgj54YnOMhRJKGzv-SyGx2FXI4xKj_bhQ5LUY3daYZmazb9FnS1IajHtAipjqbfYt3faNCvw1sjPIukyYnYx"
 		})
 
 		var plugins: [PluginType] = [authPlugin]

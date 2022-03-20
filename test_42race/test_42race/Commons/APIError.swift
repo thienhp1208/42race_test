@@ -55,6 +55,11 @@ enum APIError: LocalizedError {
     case decoding(Error)
     case backend(BackendError)
     case invalid
+    case nilValue
+    case emptySearchField
+    case cantGetReviews
+    case locationAuthorized
+    case unableGetLocation
 
     var errorDescription: String? {
         switch self {
@@ -64,6 +69,11 @@ enum APIError: LocalizedError {
         case let .backend(error): return error.localizedDescription
         case let .unknown(error): return error.localizedDescription
         case .invalid: return "Something goes wrong, please, try again"
+        case .nilValue: return "Something be missing, please try again"
+        case .emptySearchField: return "Please enter search field to continue"
+        case .cantGetReviews: return "Can't get review of this restuarant"
+        case .locationAuthorized: return "Please allow location permission for this app to continue"
+        case .unableGetLocation: return "Unable to get your current location"
         }
     }
 

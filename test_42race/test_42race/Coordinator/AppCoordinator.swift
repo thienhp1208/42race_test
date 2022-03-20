@@ -20,17 +20,10 @@ class AppCoordinator: RootCoordinator {
 	// MARK: - Routing
 
 	private func runSplash() {
-//		let controller = SplashViewController.instantiate(viewModel: SplashControllerViewModel(session: session))
-//
-//		controller.didLogin = { [weak self] in
-//			self?.isOnSplashScreen = false
-//			self?.runMain()
-//		}
-//		controller.notAuth = { [weak self] in
-//			self?.isOnSplashScreen = false
-//			self?.runLogin()
-//		}
-//
-//		router.setRootModule(controller)
+        let viewModel = SearchViewModel(session: session)
+        let coordinator = SearchCoordinator.init(with: NavigationRouter(), viewModel: viewModel)
+
+        addChild(coordinator)
+        router.setRootModule(coordinator.toPresentable())
 	}
 }
