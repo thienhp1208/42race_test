@@ -163,5 +163,7 @@ extension SearchViewController: UITextFieldDelegate {
 
 // MARK: - CLLocationManagerDelegate
 extension SearchViewController: CLLocationManagerDelegate {
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        viewModel.locationManager.startUpdatingLocation()   
+    }
 }
