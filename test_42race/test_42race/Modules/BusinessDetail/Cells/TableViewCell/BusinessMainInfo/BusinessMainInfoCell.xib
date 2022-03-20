@@ -37,7 +37,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-ib-mRj" customClass="CosmosView" customModule="Cosmos">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-ib-mRj" customClass="CosmosView" customModule="Cosmos">
                         <rect key="frame" x="16" y="281" width="405.5" height="23"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

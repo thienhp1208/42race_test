@@ -2,7 +2,7 @@
 //  BusinessTarget.swift
 //  test_42race
 //
-//  Created by For Test Only on 17/03/2022.
+//  Created by Thien Huynh on 17/03/2022.
 //
 
 import Moya
@@ -10,6 +10,7 @@ import Moya
 enum BusinessTarget {
     case searchBusinesses(ParametersDictionary)
     case getBusinessById(String)
+    case getBusinessReview(String)
 }
 
 extension BusinessTarget: TargetType, AccessTokenAuthorizable {
@@ -23,12 +24,14 @@ extension BusinessTarget: TargetType, AccessTokenAuthorizable {
             return "businesses/search"
         case .getBusinessById(let id):
             return "businesses/\(id)"
+        case .getBusinessReview(let id):
+            return "businesses/\(id)/reviews"
         }
     }
     
     var method: Method {
         switch self {
-        case .searchBusinesses, .getBusinessById:
+        case .searchBusinesses, .getBusinessById, .getBusinessReview:
             return .get
         }
     }
@@ -37,7 +40,7 @@ extension BusinessTarget: TargetType, AccessTokenAuthorizable {
         switch self {
         case .searchBusinesses(let parameters):
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-        case .getBusinessById:
+        case .getBusinessById, .getBusinessReview:
             return .requestPlain
         }
     }

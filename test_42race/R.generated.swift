@@ -163,7 +163,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
     /// Nib `BusinessCell`.
     static let businessCell = _R.nib._BusinessCell()
@@ -175,6 +175,10 @@ struct R: Rswift.Validatable {
     static let businessMoreInfoCell = _R.nib._BusinessMoreInfoCell()
     /// Nib `BusinessOperationHourCell`.
     static let businessOperationHourCell = _R.nib._BusinessOperationHourCell()
+    /// Nib `BusinessReviewCell`.
+    static let businessReviewCell = _R.nib._BusinessReviewCell()
+    /// Nib `BusinessReviewTitleCell`.
+    static let businessReviewTitleCell = _R.nib._BusinessReviewTitleCell()
     /// Nib `FilterCollectionViewCell`.
     static let filterCollectionViewCell = _R.nib._FilterCollectionViewCell()
 
@@ -219,6 +223,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BusinessReviewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.businessReviewCell) instead")
+    static func businessReviewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.businessReviewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BusinessReviewTitleCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.businessReviewTitleCell) instead")
+    static func businessReviewTitleCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.businessReviewTitleCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "FilterCollectionViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.filterCollectionViewCell) instead")
     static func filterCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -244,6 +264,14 @@ struct R: Rswift.Validatable {
 
     static func businessOperationHourCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessOperationHourCell? {
       return R.nib.businessOperationHourCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessOperationHourCell
+    }
+
+    static func businessReviewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessReviewCell? {
+      return R.nib.businessReviewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessReviewCell
+    }
+
+    static func businessReviewTitleCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessReviewTitleCell? {
+      return R.nib.businessReviewTitleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessReviewTitleCell
     }
 
     static func filterCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FilterCollectionCell? {
@@ -356,6 +384,28 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessOperationHourCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessOperationHourCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _BusinessReviewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BusinessReviewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessReviewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessReviewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _BusinessReviewTitleCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BusinessReviewTitleCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessReviewTitleCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessReviewTitleCell
       }
 
       fileprivate init() {}

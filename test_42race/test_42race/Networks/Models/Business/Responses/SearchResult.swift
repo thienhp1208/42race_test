@@ -2,7 +2,7 @@
 //  BusinessDetail.swift
 //  test_42race
 //
-//  Created by For Test Only on 18/03/2022.
+//  Created by Thien Huynh on 18/03/2022.
 //
 
 import Foundation

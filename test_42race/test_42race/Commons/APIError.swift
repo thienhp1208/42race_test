@@ -57,6 +57,7 @@ enum APIError: LocalizedError {
     case invalid
     case nilValue
     case emptySearchField
+    case cantGetReviews
 
     var errorDescription: String? {
         switch self {
@@ -68,6 +69,7 @@ enum APIError: LocalizedError {
         case .invalid: return "Something goes wrong, please, try again"
         case .nilValue: return "Something be missing, please try again"
         case .emptySearchField: return "Please enter search field to continue"
+        case .cantGetReviews: return "Can't get review of this restuarant"
         }
     }
 

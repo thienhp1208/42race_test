@@ -19,6 +19,11 @@
 		E813060727E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813060627E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift */; };
 		E832470827E670770045DF00 /* BusinessOperationHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832470627E670770045DF00 /* BusinessOperationHourCell.swift */; };
 		E832470927E670770045DF00 /* BusinessOperationHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E832470727E670770045DF00 /* BusinessOperationHourCell.xib */; };
+		E832470D27E6DDE50045DF00 /* BusinessReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832470C27E6DDE50045DF00 /* BusinessReviews.swift */; };
+		E832471227E6E1B80045DF00 /* BusinessReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832471027E6E1B80045DF00 /* BusinessReviewCell.swift */; };
+		E832471327E6E1B80045DF00 /* BusinessReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E832471127E6E1B80045DF00 /* BusinessReviewCell.xib */; };
+		E832471727E6E87D0045DF00 /* BusinessReviewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832471527E6E87D0045DF00 /* BusinessReviewTitleCell.swift */; };
+		E832471827E6E87D0045DF00 /* BusinessReviewTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E832471627E6E87D0045DF00 /* BusinessReviewTitleCell.xib */; };
 		E87E53AFC13C7F94A184121C /* Pods_test_42race.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0633E731999093083A5250 /* Pods_test_42race.framework */; };
 		E888BC2927E228C30016A5BC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC2527E228C20016A5BC /* APIError.swift */; };
 		E888BC2A27E228C30016A5BC /* JsonArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC2627E228C20016A5BC /* JsonArrayEncoding.swift */; };
@@ -103,6 +108,11 @@
 		E813060627E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_42raceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E832470627E670770045DF00 /* BusinessOperationHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOperationHourCell.swift; sourceTree = "<group>"; };
 		E832470727E670770045DF00 /* BusinessOperationHourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessOperationHourCell.xib; sourceTree = "<group>"; };
+		E832470C27E6DDE50045DF00 /* BusinessReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessReviews.swift; sourceTree = "<group>"; };
+		E832471027E6E1B80045DF00 /* BusinessReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessReviewCell.swift; sourceTree = "<group>"; };
+		E832471127E6E1B80045DF00 /* BusinessReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessReviewCell.xib; sourceTree = "<group>"; };
+		E832471527E6E87D0045DF00 /* BusinessReviewTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessReviewTitleCell.swift; sourceTree = "<group>"; };
+		E832471627E6E87D0045DF00 /* BusinessReviewTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessReviewTitleCell.xib; sourceTree = "<group>"; };
 		E888BC2527E228C20016A5BC /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E888BC2627E228C20016A5BC /* JsonArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonArrayEncoding.swift; sourceTree = "<group>"; };
 		E888BC2727E228C20016A5BC /* APIRequestRetrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestRetrier.swift; sourceTree = "<group>"; };
@@ -254,6 +264,24 @@
 			path = test_42raceUITests;
 			sourceTree = "<group>";
 		};
+		E832470E27E6E1860045DF00 /* BusinessReview */ = {
+			isa = PBXGroup;
+			children = (
+				E832471027E6E1B80045DF00 /* BusinessReviewCell.swift */,
+				E832471127E6E1B80045DF00 /* BusinessReviewCell.xib */,
+			);
+			path = BusinessReview;
+			sourceTree = "<group>";
+		};
+		E832471427E6E8620045DF00 /* BusinessReviewTitle */ = {
+			isa = PBXGroup;
+			children = (
+				E832471527E6E87D0045DF00 /* BusinessReviewTitleCell.swift */,
+				E832471627E6E87D0045DF00 /* BusinessReviewTitleCell.xib */,
+			);
+			path = BusinessReviewTitle;
+			sourceTree = "<group>";
+		};
 		E888BC2427E228880016A5BC /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +307,7 @@
 			children = (
 				E888BC4B27E495990016A5BC /* SearchResult.swift */,
 				E89CF5B127E5FF9A00C5E2E4 /* BusinessDetail.swift */,
+				E832470C27E6DDE50045DF00 /* BusinessReviews.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -419,6 +448,8 @@
 		E89CF5C127E6325400C5E2E4 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E832471427E6E8620045DF00 /* BusinessReviewTitle */,
+				E832470E27E6E1860045DF00 /* BusinessReview */,
 				E89CF5C827E6329200C5E2E4 /* BusinessOperationHour */,
 				E89CF5C727E6328000C5E2E4 /* BusineessMoreInfo */,
 				E89CF5C627E6327600C5E2E4 /* BusinessMainInfo */,
@@ -632,7 +663,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E832471827E6E87D0045DF00 /* BusinessReviewTitleCell.xib in Resources */,
 				E81305F027E1E08D00E514FA /* LaunchScreen.storyboard in Resources */,
+				E832471327E6E1B80045DF00 /* BusinessReviewCell.xib in Resources */,
 				E89CF5B827E60D7400C5E2E4 /* FilterCollectionViewCell.xib in Resources */,
 				E89CF5AE27E5D68700C5E2E4 /* BusinessCell.xib in Resources */,
 				E89CF5D027E639D200C5E2E4 /* BusinessImageCollectionCell.xib in Resources */,
@@ -793,6 +826,7 @@
 				E888BC2A27E228C30016A5BC /* JsonArrayEncoding.swift in Sources */,
 				E832470827E670770045DF00 /* BusinessOperationHourCell.swift in Sources */,
 				E89CF5C427E6327200C5E2E4 /* BusinessMainInfoCell.swift in Sources */,
+				E832471727E6E87D0045DF00 /* BusinessReviewTitleCell.swift in Sources */,
 				E888BC3B27E329A10016A5BC /* BaseViewController.swift in Sources */,
 				E89CF5CF27E639D200C5E2E4 /* BusinessImageCollectionCell.swift in Sources */,
 				E888BC3D27E32A350016A5BC /* SearchCoordinator.swift in Sources */,
@@ -813,6 +847,7 @@
 				E8B8415D27E1F31100FD3F6A /* AppRouter.swift in Sources */,
 				E8B8416727E1F34700FD3F6A /* DeepLinks.swift in Sources */,
 				E888BC4527E48FE80016A5BC /* SearchRequestKey.swift in Sources */,
+				E832471227E6E1B80045DF00 /* BusinessReviewCell.swift in Sources */,
 				E8B8414B27E1F1C000FD3F6A /* R.generated.swift in Sources */,
 				E888BC2C27E228C30016A5BC /* BaseAPIManager.swift in Sources */,
 				E888BC3427E239900016A5BC /* EmptyResponseModel.swift in Sources */,
@@ -823,6 +858,7 @@
 				E8B8415927E1F31100FD3F6A /* Presentable.swift in Sources */,
 				E888BC5027E5C3130016A5BC /* LoadingView.swift in Sources */,
 				E8B8415A27E1F31100FD3F6A /* AppCoordinator.swift in Sources */,
+				E832470D27E6DDE50045DF00 /* BusinessReviews.swift in Sources */,
 				E89CF5BB27E6273C00C5E2E4 /* BusinessDetailViewController.swift in Sources */,
 				E888BC4C27E495990016A5BC /* SearchResult.swift in Sources */,
 				E888BC2927E228C30016A5BC /* APIError.swift in Sources */,
