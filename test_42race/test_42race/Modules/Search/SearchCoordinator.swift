@@ -32,6 +32,7 @@ extension SearchCoordinator {
             self.router.popModule()
         }
         
+        
         router.push(controller)
     }
 }

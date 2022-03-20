@@ -58,6 +58,8 @@ enum APIError: LocalizedError {
     case nilValue
     case emptySearchField
     case cantGetReviews
+    case locationAuthorized
+    case unableGetLocation
 
     var errorDescription: String? {
         switch self {
@@ -70,6 +72,8 @@ enum APIError: LocalizedError {
         case .nilValue: return "Something be missing, please try again"
         case .emptySearchField: return "Please enter search field to continue"
         case .cantGetReviews: return "Can't get review of this restuarant"
+        case .locationAuthorized: return "Please allow location permission for this app to continue"
+        case .unableGetLocation: return "Unable to get your current location"
         }
     }
 
