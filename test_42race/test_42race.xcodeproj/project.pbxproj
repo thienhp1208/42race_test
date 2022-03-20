@@ -17,6 +17,8 @@
 		E81305FB27E1E08E00E514FA /* test_42raceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81305FA27E1E08E00E514FA /* test_42raceTests.swift */; };
 		E813060527E1E08E00E514FA /* test_42raceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813060427E1E08E00E514FA /* test_42raceUITests.swift */; };
 		E813060727E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813060627E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift */; };
+		E832470827E670770045DF00 /* BusinessOperationHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832470627E670770045DF00 /* BusinessOperationHourCell.swift */; };
+		E832470927E670770045DF00 /* BusinessOperationHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E832470727E670770045DF00 /* BusinessOperationHourCell.xib */; };
 		E87E53AFC13C7F94A184121C /* Pods_test_42race.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0633E731999093083A5250 /* Pods_test_42race.framework */; };
 		E888BC2927E228C30016A5BC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC2527E228C20016A5BC /* APIError.swift */; };
 		E888BC2A27E228C30016A5BC /* JsonArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888BC2627E228C20016A5BC /* JsonArrayEncoding.swift */; };
@@ -99,6 +101,8 @@
 		E813060027E1E08E00E514FA /* test_42raceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test_42raceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E813060427E1E08E00E514FA /* test_42raceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_42raceUITests.swift; sourceTree = "<group>"; };
 		E813060627E1E08E00E514FA /* test_42raceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_42raceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E832470627E670770045DF00 /* BusinessOperationHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOperationHourCell.swift; sourceTree = "<group>"; };
+		E832470727E670770045DF00 /* BusinessOperationHourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessOperationHourCell.xib; sourceTree = "<group>"; };
 		E888BC2527E228C20016A5BC /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E888BC2627E228C20016A5BC /* JsonArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonArrayEncoding.swift; sourceTree = "<group>"; };
 		E888BC2727E228C20016A5BC /* APIRequestRetrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestRetrier.swift; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 		E89CF5C827E6329200C5E2E4 /* BusinessOperationHour */ = {
 			isa = PBXGroup;
 			children = (
+				E832470627E670770045DF00 /* BusinessOperationHourCell.swift */,
+				E832470727E670770045DF00 /* BusinessOperationHourCell.xib */,
 			);
 			path = BusinessOperationHour;
 			sourceTree = "<group>";
@@ -634,6 +640,7 @@
 				E81305ED27E1E08D00E514FA /* Assets.xcassets in Resources */,
 				E89CF5CA27E6348F00C5E2E4 /* BusinessMainInfoCell.xib in Resources */,
 				E81305EB27E1E08B00E514FA /* Main.storyboard in Resources */,
+				E832470927E670770045DF00 /* BusinessOperationHourCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +791,7 @@
 				E8B8415B27E1F31100FD3F6A /* Coordinator.swift in Sources */,
 				E888BC3927E3295D0016A5BC /* BaseViewModel.swift in Sources */,
 				E888BC2A27E228C30016A5BC /* JsonArrayEncoding.swift in Sources */,
+				E832470827E670770045DF00 /* BusinessOperationHourCell.swift in Sources */,
 				E89CF5C427E6327200C5E2E4 /* BusinessMainInfoCell.swift in Sources */,
 				E888BC3B27E329A10016A5BC /* BaseViewController.swift in Sources */,
 				E89CF5CF27E639D200C5E2E4 /* BusinessImageCollectionCell.swift in Sources */,

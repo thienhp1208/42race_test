@@ -16,3 +16,10 @@ class BusinessDetailViewModel: BaseViewModel {
         self.businessDetail = businessDetail
     }
 }
+
+// MARK: - Helper Methods
+extension BusinessDetailViewModel {
+    func getBusinessReview(with alias: String) {
+        
+    }
+}

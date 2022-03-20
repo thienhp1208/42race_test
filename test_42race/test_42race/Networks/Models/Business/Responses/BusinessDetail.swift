@@ -51,9 +51,9 @@ struct BusinessDetail: Decodable {
 
 // MARK: - Hour
 struct Hour: Decodable {
-    let hourOpen: [Open]
-    let hoursType: String
-    let isOpenNow: Bool
+    let hourOpen: [Open]?
+    let hoursType: String?
+    let isOpenNow: Bool?
     
     enum CodingKeys: String, CodingKey {
         case hourOpen = "open"
@@ -64,10 +64,10 @@ struct Hour: Decodable {
 
 // MARK: - Open
 struct Open: Decodable {
-    let isOvernight: Bool
-    let start: String
-    let end: String
-    let day: Int
+    let isOvernight: Bool?
+    let start: String?
+    let end: String?
+    let day: Int?
     
     enum CodingKeys: String, CodingKey {
         case isOvernight = "is_overnight"

@@ -163,7 +163,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `BusinessCell`.
     static let businessCell = _R.nib._BusinessCell()
@@ -173,6 +173,8 @@ struct R: Rswift.Validatable {
     static let businessMainInfoCell = _R.nib._BusinessMainInfoCell()
     /// Nib `BusinessMoreInfoCell`.
     static let businessMoreInfoCell = _R.nib._BusinessMoreInfoCell()
+    /// Nib `BusinessOperationHourCell`.
+    static let businessOperationHourCell = _R.nib._BusinessOperationHourCell()
     /// Nib `FilterCollectionViewCell`.
     static let filterCollectionViewCell = _R.nib._FilterCollectionViewCell()
 
@@ -209,6 +211,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BusinessOperationHourCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.businessOperationHourCell) instead")
+    static func businessOperationHourCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.businessOperationHourCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "FilterCollectionViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.filterCollectionViewCell) instead")
     static func filterCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -230,6 +240,10 @@ struct R: Rswift.Validatable {
 
     static func businessMoreInfoCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessMoreInfoCell? {
       return R.nib.businessMoreInfoCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessMoreInfoCell
+    }
+
+    static func businessOperationHourCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessOperationHourCell? {
+      return R.nib.businessOperationHourCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessOperationHourCell
     }
 
     static func filterCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FilterCollectionCell? {
@@ -331,6 +345,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "ic_arrow_right", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_arrow_right' is used in nib 'BusinessMoreInfoCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _BusinessOperationHourCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BusinessOperationHourCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BusinessOperationHourCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BusinessOperationHourCell
       }
 
       fileprivate init() {}

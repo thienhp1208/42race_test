@@ -49,6 +49,9 @@ extension BusinessDetailViewController {
         detailTableView.dataSource = self
         detailTableView.register(cellType: BusinessMainInfoCell.self)
         detailTableView.register(cellType: BusinessMoreInfoCell.self)
+        detailTableView.register(cellType: BusinessOperationHourCell.self)
+        
+        
     }
     
     private func binding() {
@@ -59,7 +62,7 @@ extension BusinessDetailViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension BusinessDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,11 +70,15 @@ extension BusinessDetailViewController: UITableViewDelegate, UITableViewDataSour
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessMainInfoCell.self)
             cell.updateData(detail: viewModel.businessDetail)
             return cell
-        } else {
+        } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessMoreInfoCell.self)
             cell.updateData(detail: viewModel.businessDetail)
             return cell
-        }
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BusinessOperationHourCell.self)
+            cell.updateData(detail: viewModel.businessDetail)
+            return cell
+        } 
     }
     
     
