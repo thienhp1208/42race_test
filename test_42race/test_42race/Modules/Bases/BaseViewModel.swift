@@ -2,7 +2,7 @@
 //  BaseViewModel.swift
 //  test_42race
 //
-//  Created by For Test Only on 17/03/2022.
+//  Created by Thien Huynh on 17/03/2022.
 //
 
 import Foundation

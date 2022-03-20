@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreLocation
 
 class SearchViewController: BaseViewController<SearchViewModel> {
 
@@ -56,6 +57,14 @@ extension SearchViewController {
         
         sortByCollectionView.register(UINib(resource: R.nib.filterCollectionViewCell), forCellWithReuseIdentifier: R.reuseIdentifier.filterCollectionCell.identifier)
         searchByCollectionView.register(UINib(resource: R.nib.filterCollectionViewCell), forCellWithReuseIdentifier: R.reuseIdentifier.filterCollectionCell.identifier)
+        
+        requestLocationPermission()
+    }
+    
+    private func requestLocationPermission() {
+        viewModel.locationManager.delegate = self
+        viewModel.locationManager.requestAlwaysAuthorization()
+        viewModel.locationManager.startUpdatingLocation()
     }
     
     private func binding() {
@@ -149,5 +158,12 @@ extension SearchViewController: UITextFieldDelegate {
         viewModel.search(with: textField.text ?? "")
         view.endEditing(true)
         return true
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+extension SearchViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        viewModel.locationManager.startUpdatingLocation()   
     }
 }

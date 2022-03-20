@@ -2,7 +2,7 @@
 //  FilterCollectionCell.swift
 //  test_42race
 //
-//  Created by For Test Only on 19/03/2022.
+//  Created by Thien Huynh on 19/03/2022.
 //
 
 import UIKit
@@ -23,6 +23,8 @@ class FilterCollectionCell: UICollectionViewCell {
 extension FilterCollectionCell {
     private func configUI() {
         containView.layer.cornerRadius = containView.bounds.height/2
+        containView.layer.masksToBounds = true
+        containView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5052345951)
     }
     
     func updateData(data: String) {

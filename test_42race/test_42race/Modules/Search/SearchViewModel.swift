@@ -2,11 +2,12 @@
 //  SearchViewModel.swift
 //  test_42race
 //
-//  Created by For Test Only on 17/03/2022.
+//  Created by Thien Huynh on 17/03/2022.
 //
 
 import Foundation
 import RxSwift
+import CoreLocation
 
 enum SortMethod: String, CaseIterable, Encodable {
     case distance = "distance"
@@ -49,6 +50,7 @@ class SearchViewModel: BaseViewModel {
     private lazy var apiManager = BusinessAPIManager(session: self.session)
     
     var businesses: [Business] = []
+    var locationManager = CLLocationManager()
     private var selectedSortMethod: SortMethod?
     private var selectedSearchMethod: SearchMethod = .name
     
@@ -83,6 +85,27 @@ extension SearchViewModel {
     }
     
     func search(with text: String) {
+        if #available(iOS 14.0, *) {
+            if locationManager.authorizationStatus != .authorizedAlways &&
+                locationManager.authorizationStatus != .authorizedWhenInUse &&
+                locationManager.authorizationStatus != .authorized {
+                showError.onNext(.locationAuthorized)
+                return
+            }
+        } else {
+            if CLLocationManager.authorizationStatus() != .authorizedAlways &&
+                CLLocationManager.authorizationStatus() != .authorizedWhenInUse &&
+                CLLocationManager.authorizationStatus() != .authorized {
+                showError.onNext(.locationAuthorized)
+                return
+            }
+        }
+        
+        guard let currentLocation = locationManager.location?.coordinate else {
+            showError.onNext(.unableGetLocation)
+            return
+        }
+        
         if text.isEmpty {
             self.showError.onNext(.emptySearchField)
             return
@@ -97,14 +120,14 @@ extension SearchViewModel {
         switch selectedSearchMethod {
         case .name:
             term = text
-            lat = 37.786882
-            lon = -122.399972
+            lat = currentLocation.latitude
+            lon = currentLocation.longitude
         case .location:
             address = text
         case .categories:
             category = text
-            lat = 37.786882
-            lon = -122.399972
+            lat = currentLocation.latitude
+            lon = currentLocation.longitude
         }
         
         isLoading.onNext(true)
